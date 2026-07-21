@@ -28,3 +28,21 @@ export interface Project {
   demoUrl?: string
   featured: boolean
 }
+
+export type PublicationCategory = 'paper' | 'conference' | 'open-source'
+export type PublicationStatus = 'Published' | 'Accepted' | 'Under Review' | 'Ongoing'
+
+export interface Publication {
+  id: string
+  category: PublicationCategory
+  title: string
+  authors: string[]
+  venue: string
+  year: number
+  status: PublicationStatus
+  abstract: string
+  paperUrl?: string
+  arxivUrl?: string
+  doi?: string
+  githubUrl?: string
+}

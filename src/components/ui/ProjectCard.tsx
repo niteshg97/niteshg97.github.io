@@ -20,7 +20,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     >
       {featured && (
         <span className="mb-3 w-fit rounded-full bg-signal/10 px-3 py-1 font-mono text-xs uppercase tracking-wide text-signal">
-          Featured Research
+          Featured Project
         </span>
       )}
 
