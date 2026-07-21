@@ -1,38 +1,34 @@
-import {
-  FaGithub,
-  FaLinkedin,
-  FaEnvelope,
-  FaGraduationCap,
-} from "react-icons/fa";
+import type { IconType } from 'react-icons'
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
+import { FaGraduationCap } from 'react-icons/fa'
+import { socials } from '../../data/socials'
+import type { SocialLink } from '../../types'
 
-import { socials } from "../../data/socials";
-
-const iconMap = {
-  github: FaGithub,
-  linkedin: FaLinkedin,
-  mail: FaEnvelope,
+const iconMap: Record<SocialLink['icon'], IconType> = {
+  github: FiGithub,
+  linkedin: FiLinkedin,
+  mail: FiMail,
   scholar: FaGraduationCap,
-};
+}
 
 export default function SocialIcons() {
   return (
     <div className="flex items-center gap-4">
       {socials.map((s) => {
-        const Icon = iconMap[s.icon];
-
+        const Icon = iconMap[s.icon]
         return (
           <a
             key={s.label}
             href={s.href}
-            target={s.icon === "mail" ? undefined : "_blank"}
-            rel={s.icon === "mail" ? undefined : "noopener noreferrer"}
+            target={s.icon === 'mail' ? undefined : '_blank'}
+            rel={s.icon === 'mail' ? undefined : 'noopener noreferrer'}
             aria-label={s.label}
             className="text-text-muted transition-colors hover:text-signal"
           >
             <Icon size={20} />
-          </a>
-        );
+           </a>
+          )
       })}
     </div>
-  );
+  )
 }
