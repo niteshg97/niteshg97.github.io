@@ -17,3 +17,14 @@ export interface TimelineEntry {
   period: string
   description: string
 }
+
+export interface Project {
+  id: string
+  title: string
+  description: string
+  tags: string[]
+  tech: string[]
+  githubUrl: string
+  demoUrl?: string
+  featured: boolean
+}
