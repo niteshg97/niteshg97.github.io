@@ -25,3 +25,9 @@
     @apply bg-signal/30 text-text-primary;
   }
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ping {
+    animation: none;
+  }
+}
