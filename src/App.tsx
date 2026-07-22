@@ -4,6 +4,7 @@ import About from './components/sections/About'
 import Projects from './components/sections/Projects'
 import Research from './components/sections/Research'
 import Skills from './components/sections/Skills'
+import Achievements from './components/sections/Achievements'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Projects />
       <Research />
       <Skills />
+      <Achievements />
     </Layout>
   )
 }

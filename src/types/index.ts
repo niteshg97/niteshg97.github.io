@@ -29,22 +29,8 @@ export interface Project {
   featured: boolean
 }
 
-/* -------------------------------------------
-   Research & Open Source
--------------------------------------------- */
-
-export type PublicationCategory =
-  | 'journal'
-  | 'conference'
-  | 'preprint'
-  | 'project'
-  | 'oss-contribution'
-
-export type PublicationStatus =
-  | 'Published'
-  | 'Accepted'
-  | 'Under Review'
-  | 'Ongoing'
+export type PublicationCategory = 'paper' | 'conference' | 'open-source'
+export type PublicationStatus = 'Published' | 'Accepted' | 'Under Review' | 'Ongoing'
 
 export interface Publication {
   id: string
@@ -55,18 +41,13 @@ export interface Publication {
   year: number
   status: PublicationStatus
   abstract: string
-
-  // Optional links
-  githubUrl?: string
   paperUrl?: string
   arxivUrl?: string
   doi?: string
+  githubUrl?: string
 }
-export type SkillCategory =
-  | 'languages'
-  | 'ml-fpga'
-  | 'embedded-instrumentation'
-  | 'tools'
+
+export type SkillCategory = 'languages' | 'ml-fpga' | 'embedded-instrumentation' | 'tools'
 
 export interface Skill {
   id: string
@@ -74,4 +55,17 @@ export interface Skill {
   name: string
   proficiency: number
   context?: string
+}
+
+export type AchievementCategory = 'award' | 'competition' | 'leadership' | 'open-source' | 'recognition'
+
+export interface Achievement {
+  id: string
+  title: string
+  organization: string
+  year: number
+  category: AchievementCategory
+  description: string
+  highlight?: string
+  link?: string
 }

@@ -85,7 +85,6 @@ export default function Skills() {
         variants={fadeUp}
         className="max-w-2xl font-display text-3xl font-semibold text-text-primary md:text-4xl"
       >
-        The tools and technologies behind my research.
       </motion.h2>
 
       <motion.div
