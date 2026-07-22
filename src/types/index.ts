@@ -1,7 +1,7 @@
 export interface SocialLink {
   label: string
   href: string
-  icon: 'github' | 'linkedin' | 'mail' | 'scholar'
+  icon: 'github' | 'linkedin' | 'mail' | 'scholar' | 'leetcode'
 }
 
 export interface StatItem {
@@ -68,4 +68,9 @@ export interface Achievement {
   description: string
   highlight?: string
   link?: string
+}
+
+export interface NavLink {
+  label: string
+  href: string
 }

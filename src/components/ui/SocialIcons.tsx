@@ -1,6 +1,7 @@
 import type { IconType } from 'react-icons'
 import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import { FaGraduationCap } from 'react-icons/fa'
+import { SiLeetcode } from 'react-icons/si'
 import { socials } from '../../data/socials'
 import type { SocialLink } from '../../types'
 
@@ -9,6 +10,7 @@ const iconMap: Record<SocialLink['icon'], IconType> = {
   linkedin: FiLinkedin,
   mail: FiMail,
   scholar: FaGraduationCap,
+  leetcode: SiLeetcode,
 }
 
 export default function SocialIcons() {
@@ -17,17 +19,17 @@ export default function SocialIcons() {
       {socials.map((s) => {
         const Icon = iconMap[s.icon]
         return (
-          <a
-            key={s.label}
-            href={s.href}
-            target={s.icon === 'mail' ? undefined : '_blank'}
-            rel={s.icon === 'mail' ? undefined : 'noopener noreferrer'}
-            aria-label={s.label}
-            className="text-text-muted transition-colors hover:text-signal"
-          >
-            <Icon size={20} />
-           </a>
-          )
+         <a
+          key={s.label}
+          href={s.href}
+          target={s.icon === 'mail' ? undefined : '_blank'}
+          rel={s.icon === 'mail' ? undefined : 'noopener noreferrer'}
+          aria-label={s.label}
+          className="text-text-muted transition-colors hover:text-signal"
+        >
+          <Icon size={20} aria-hidden="true" />
+        </a>
+        )
       })}
     </div>
   )
