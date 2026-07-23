@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion'
 import type { Skill } from '../../types'
 import { getProficiencyLabel } from '../../utils/skillLevel'
+import { focusRing } from '../../utils/styles'
 
 interface SkillBarProps {
   skill: Skill
@@ -15,7 +16,7 @@ export default function SkillBar({ skill }: SkillBarProps) {
     <div
       tabIndex={0}
       aria-describedby={context ? contextId : undefined}
-      className="group w-full rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+      className={`group w-full rounded-md ${focusRing}`}
     >
       <div className="flex items-baseline justify-between gap-3">
         <span className="font-mono text-sm text-text-primary">{name}</span>
@@ -28,7 +29,7 @@ export default function SkillBar({ skill }: SkillBarProps) {
           initial={{ width: '0%' }}
           whileInView={{ width: `${proficiency}%` }}
           viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: shouldReduceMotion ? 0 : 0.8, ease: 'easeOut' }}
         />
       </div>
 

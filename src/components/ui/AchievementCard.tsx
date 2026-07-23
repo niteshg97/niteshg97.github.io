@@ -1,7 +1,16 @@
 import { motion } from 'framer-motion'
 import type { IconType } from 'react-icons'
-import { FiAward, FiTarget, FiUsers, FiGithub, FiStar, FiExternalLink } from 'react-icons/fi'
+import {
+  FiAward,
+  FiTarget,
+  FiUsers,
+  FiGithub,
+  FiStar,
+  FiExternalLink,
+} from 'react-icons/fi'
 import type { Achievement, AchievementCategory } from '../../types'
+import { useCardHoverMotion } from '../../hooks/useCardHoverMotion'
+import { cardBase, focusRing } from '../../utils/styles'
 
 interface AchievementCardProps {
   achievement: Achievement
@@ -27,12 +36,12 @@ const categoryMeta: Record<AchievementCategory, CategoryMeta> = {
     badgeClass: 'border-trace/30 bg-trace/10 text-trace',
     iconWrapClass: 'bg-trace/10 text-trace',
   },
-leadership: {
-  label: 'Leadership',
-  icon: FiUsers,
-  badgeClass: 'border-blue-400/30 bg-blue-400/10 text-blue-400',
-  iconWrapClass: 'bg-blue-400/10 text-blue-400',
-},
+  leadership: {
+    label: 'Leadership',
+    icon: FiUsers,
+    badgeClass: 'border-signal/30 bg-signal/10 text-signal',
+    iconWrapClass: 'bg-signal/10 text-signal',
+  },
   'open-source': {
     label: 'Open Source',
     icon: FiGithub,
@@ -47,21 +56,35 @@ leadership: {
   },
 }
 
-export default function AchievementCard({ achievement }: AchievementCardProps) {
-  const { title, organization, year, category, description, highlight, link } = achievement
+export default function AchievementCard({
+  achievement,
+}: AchievementCardProps) {
+  const {
+    title,
+    organization,
+    year,
+    category,
+    description,
+    highlight,
+    link,
+  } = achievement
+
   const meta = categoryMeta[category]
   const Icon = meta.icon
+  const cardHover = useCardHoverMotion()
 
   return (
     <motion.article
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.2, ease:[0.22,1,0.36,1] }}
-      className="flex flex-col rounded-lg border border-border bg-bg-elevated p-6 transition-colors hover:border-signal/50"
+      {...cardHover}
+      className={`flex flex-col p-6 ${cardBase}`}
     >
       <div className="flex items-start justify-between gap-4">
-        <span className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md ${meta.iconWrapClass}`}>
+        <span
+          className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-md ${meta.iconWrapClass}`}
+        >
           <Icon size={18} aria-hidden="true" />
         </span>
+
         <span
           className={`rounded-full border px-3 py-1 font-mono text-xs uppercase tracking-wide ${meta.badgeClass}`}
         >
@@ -69,12 +92,17 @@ export default function AchievementCard({ achievement }: AchievementCardProps) {
         </span>
       </div>
 
-      <h3 className="mt-4 font-display text-lg font-semibold text-text-primary">{title}</h3>
+      <h3 className="mt-4 font-display text-lg font-semibold text-text-primary">
+        {title}
+      </h3>
+
       <p className="mt-1 font-mono text-sm text-text-muted">
         {organization} · {year}
       </p>
 
-      <p className="mt-3 text-sm leading-relaxed text-text-muted">{description}</p>
+      <p className="mt-3 text-sm leading-relaxed text-text-muted">
+        {description}
+      </p>
 
       {highlight && (
         <p className="mt-3 border-l-2 border-signal/40 pl-3 text-sm italic leading-relaxed text-text-muted">
@@ -83,16 +111,16 @@ export default function AchievementCard({ achievement }: AchievementCardProps) {
       )}
 
       {link && (
-    <a
-    href={link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="mt-5 flex items-center gap-1.5 font-mono text-sm text-text-muted transition-colors hover:text-signal"
-    >
-    <FiExternalLink size={16} />
-      View
-     </a>
-    )}
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`mt-5 flex w-fit items-center gap-1.5 rounded-sm font-mono text-sm text-text-muted transition-colors duration-200 hover:text-signal ${focusRing}`}
+        >
+          <FiExternalLink size={16} aria-hidden="true" />
+          View
+        </a>
+      )}
     </motion.article>
   )
 }

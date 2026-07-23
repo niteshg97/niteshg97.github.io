@@ -2,6 +2,7 @@ import { useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
 import { FiSend } from 'react-icons/fi'
 import { contactEmail } from '../../data/contact'
+import { focusRing } from '../../utils/styles'
 
 interface FormState {
   name: string
@@ -41,7 +42,7 @@ export default function ContactForm() {
           value={form.name}
           onChange={handleChange('name')}
           placeholder="Your name"
-          className="mt-2 w-full rounded-md border border-border bg-bg px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-signal"
+          className={`mt-2 w-full rounded-md border border-border bg-bg px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-signal ${focusRing}`}
         />
       </div>
 
@@ -57,7 +58,7 @@ export default function ContactForm() {
           value={form.email}
           onChange={handleChange('email')}
           placeholder="you@example.com"
-          className="mt-2 w-full rounded-md border border-border bg-bg px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-signal"
+          className={`mt-2 w-full rounded-md border border-border bg-bg px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-signal ${focusRing}`}
         />
       </div>
 
@@ -73,13 +74,13 @@ export default function ContactForm() {
           value={form.message}
           onChange={handleChange('message')}
           placeholder="What would you like to discuss?"
-          className="mt-2 w-full resize-none rounded-md border border-border bg-bg px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-signal"
+          className={`mt-2 w-full resize-none rounded-md border border-border bg-bg px-4 py-2.5 text-sm text-text-primary outline-none transition-colors focus:border-signal ${focusRing}`}
         />
       </div>
 
       <button
         type="submit"
-        className="mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-signal px-5 py-2.5 font-mono text-sm text-bg transition-colors hover:bg-signal/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-signal focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+        className={`mt-1 inline-flex items-center justify-center gap-2 rounded-md bg-signal px-5 py-2.5 font-mono text-sm text-bg transition-all duration-200 hover:-translate-y-0.5 hover:bg-signal/90 active:translate-y-0 ${focusRing}`}
       >
         <FiSend size={16} aria-hidden="true" />
         Send Message

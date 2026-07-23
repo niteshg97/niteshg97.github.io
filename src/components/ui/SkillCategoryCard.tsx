@@ -10,7 +10,7 @@ interface SkillCategoryCardProps {
 
 export default function SkillCategoryCard({ label, icon: Icon, skills }: SkillCategoryCardProps) {
   return (
-    <div className="rounded-lg border border-border bg-bg-elevated p-6">
+    <div className="rounded-lg border border-border bg-bg-elevated p-6 transition-colors hover:border-signal/30">
       <div className="flex items-center gap-3">
         <span className="flex h-9 w-9 items-center justify-center rounded-md bg-signal/10 text-signal">
           <Icon size={18} aria-hidden="true" />
