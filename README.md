@@ -143,7 +143,7 @@ The source code in this repository is shared for reference and reuse. Site conte
 
 - **Email:** niteshk.ug23.ee@nitp.ac.in
 - **GitHub:** [github.com/niteshg97](https://github.com/niteshg97)
-- **LinkedIn:**https://www.linkedin.com/in/nitesh-kumar-68a698275
+- **LinkedIn:** https://www.linkedin.com/in/nitesh-kumar-68a698275
 ---
 
 Built with React, TypeScript, Tailwind CSS, and Framer Motion following a scalable, data-driven architecture focused on maintainability, accessibility, and performance.
