@@ -29,7 +29,12 @@ export interface Project {
   featured: boolean
 }
 
-export type PublicationCategory = 'paper' | 'conference' | 'open-source'
+export type PublicationCategory =
+  | 'journal'
+  | 'conference'
+  | 'preprint'
+  | 'project'
+  | 'oss-contribution'
 export type PublicationStatus = 'Published' | 'Accepted' | 'Under Review' | 'Ongoing'
 
 export interface Publication {

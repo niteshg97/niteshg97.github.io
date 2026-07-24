@@ -52,13 +52,14 @@ export default function Navbar() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [isMenuOpen])
 
-  const closeMenu = useCallback(() => {
-    setIsMenuOpen(false)
-  }, [])
+  const closeMenu = useCallback(() => setIsMenuOpen(false), [])
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-md">
-      <nav className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+      <nav
+        aria-label="Primary navigation"
+        className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4"
+      >
         <a
           href="#home"
           className={`rounded-sm font-display font-semibold tracking-tight text-text-primary ${focusRing}`}
